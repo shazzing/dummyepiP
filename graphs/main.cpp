@@ -1,8 +1,8 @@
 //
-//  main.c
+//  main.cpp
 //  graphs
 //
-//  Created by shashank hegde on 5/19/16.
+//  Created by shashank hegde on 7/30/16.
 //  Copyright © 2016 shashank hegde. All rights reserved.
 //
 

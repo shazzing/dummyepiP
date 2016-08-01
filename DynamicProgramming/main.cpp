@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  DSDynamicProgramming
+//  DynamicProgramming
 //
-//  Created by shashank hegde on 1/3/16.
+//  Created by shashank hegde on 7/30/16.
 //  Copyright © 2016 shashank hegde. All rights reserved.
 //
 
@@ -39,11 +39,11 @@ int main(int argc, const char * argv[]) {
 
     cout << "the number of combination in American football to get a score of 12 is: "
             << countCombination(12, scoreWeights) << endl;
-    cout << "the number of combination in American football to get a score of 12 is: "
+    cout << "the number of Permutation in American football to get a score of 12 is: "
     << countPermutation(12, scoreWeights) << endl;
     cout << " the levistein distance between words 'Carthorse' and 'Orchestra' is: " << levistienDistance("Carthorse", "Orchestra") << endl;
     
-    cout << "the numberofWays of trversal of 5,5 2DArray is:" << numofWays(5, 5) << endl;
+    cout << "the numberofWays of traversal of 5,5 2DArray is:" << numofWays(5, 5) << endl;
     
     vector<vector<int>> fishesNums(5, vector<int>(5, 0));
     fishesNums[2][3] = 15;

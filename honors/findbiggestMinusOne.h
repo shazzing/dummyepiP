@@ -10,6 +10,7 @@
 #define findbiggestMinusOne_h
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <limits>
 using namespace std;
 
@@ -19,12 +20,12 @@ int maxProductMinusOne(const vector<int>& A ){
     partial_sum(A.crbegin(), A.crend(), R.rbegin(), multiplies<int>());
     
     int maxProduct = numeric_limits<int>::min();
-    for(int i=0; i<A.size(), i++){
+    for(int i=0; i<A.size(); i++){
         int forward = i > 0 ? L[i-1] : 1;
         int backward = i + 1 < A.size() ? R[i+1] : 1;
-        max_product = max(max_product, forward*backward);
+        maxProduct = max(maxProduct, forward*backward);
     }
-    return max_product;
+    return maxProduct;
 }
 
 #endif /* findbiggestMinusOne_h */

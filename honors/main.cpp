@@ -17,6 +17,7 @@
 #include "reverseSubListofKSize.hpp"
 #include "zipLinkedList.h"
 #include "medianCirList.hpp"
+#include "longestValidParanthesis.h"
 
 using namespace std;
 
@@ -126,6 +127,10 @@ void honorsTest(){
     double medianVal = findMedianOfCircularLinkedList(lastNode);
     
     cout << "the median of circular list is: " << medianVal << endl;
+    
+    string parStr("((())()(()(");
+    size_t maxLen = longestValidPara(parStr);
+    cout << " maxLength of the para is: " << maxLen << endl;
 }
 
 

@@ -14,6 +14,10 @@
 #include "rotateArr.hpp"
 #include "positionAttackedByRook.h"
 #include "justifyText.hpp"
+#include "reverseSubListofKSize.hpp"
+#include "zipLinkedList.h"
+#include "medianCirList.hpp"
+
 using namespace std;
 
 void display2DArr(const vector<vector<int>>& position){
@@ -23,6 +27,41 @@ void display2DArr(const vector<vector<int>>& position){
         }
         cout << endl;
     }
+}
+
+linkedList* makeListFromArray(const vector<int>& arr){
+    linkedList* prev =nullptr, *curr = nullptr, *dummy_head = new linkedList(0,nullptr);
+    for(int elem: arr){
+        curr = new linkedList(elem);
+        if(prev){
+            prev->next = curr;
+        }
+        else{
+            prev = curr;
+            dummy_head->next = curr;
+        }
+        prev = curr;
+    }
+    return dummy_head->next;
+}
+
+void displayList(linkedList* head){
+    linkedList* curr = head;
+    while(curr){
+        cout << curr->data << " " ;
+        curr = curr->next;
+    }
+    cout << endl;
+}
+
+
+
+linkedList* getLastNodeinList(linkedList* head){
+    linkedList* curr  = head;
+    while(curr->next){
+        curr =curr->next;
+    }
+    return curr;
 }
 
 void honorsTest(){
@@ -53,7 +92,7 @@ void honorsTest(){
         cout << a << ", " ;
     }
     cout << endl;
-    */
+    
     vector<vector<int>> positions(8, vector<int>(8,1));
     
     positions[0][1] =0, positions[3][5] =0, positions[4][3] =0, positions[6][0] =0;
@@ -70,8 +109,25 @@ void honorsTest(){
     for(string line:res){
         cout << line << endl;
     }
+     */
+    linkedList* head = /* makeListFromArray({1,2,3}) ; */ makeListFromArray({2, 2, 3, 5, 7, 11, 11});
+    displayList(head);
+    head = reverseKList(head, 3);
+    displayList(head);
     
+    linkedList* nHead = makeListFromArray({1, 2, 3, 4, 5, 6, 7, 8, 9});
+   /* displayList(nHead);
+    nHead = zipLinkList(nHead);
+    displayList(nHead);*/
+    
+    linkedList* lastNode = getLastNodeinList(nHead);
+    lastNode->next = nHead;
+    
+    double medianVal = findMedianOfCircularLinkedList(lastNode);
+    
+    cout << "the median of circular list is: " << medianVal << endl;
 }
+
 
 
 int main(int argc, const char * argv[]) {

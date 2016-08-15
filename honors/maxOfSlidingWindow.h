@@ -107,4 +107,23 @@ vector<trafficElement> calculateTrafficeVolumes(const vector<trafficElement>& vo
 }
 
 
+vector<trafficElement> calculateTrafficeVolumes1(const vector<trafficElement>& volTraffic, long w){
+    queueWithMax<trafficElement> slidingWindow;
+    vector<trafficElement> maxVolForW;
+    for(const trafficElement& elem: volTraffic){
+        // populate all time intervals b/w prev int and curr trafficVolume
+        slidingWindow.Enqueue(elem);
+        
+        while(!slidingWindow.isEmpty() && (elem.time - slidingWindow.front().time > w)){
+            slidingWindow.Dequeue();
+        }
+        
+        maxVolForW.emplace_back(trafficElement{elem.time,  slidingWindow.max().volume});
+    }
+    
+    
+    return maxVolForW;
+}
+
+
 #endif /* maxOfSlidingWindow_h */

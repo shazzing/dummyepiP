@@ -19,6 +19,7 @@
 #include "medianCirList.hpp"
 #include "longestValidParanthesis.h"
 #include "maxOfSlidingWindow.h"
+#include "prePostOrderTraversalnonRecurs.hpp"
 
 
 using namespace std;
@@ -137,8 +138,9 @@ void honorsTest(){
     vector<trafficElement> trafficVol = {{0, 1.3}, {2, 2.5}, {3, 3.7}, {5, 1.4}, {6, 2.6}, {8, 2.2}, {9, 1.7}, {14, 1.7}};
     vector<trafficElement> maxVol = calculateTrafficeVolumes(trafficVol, 3);
     for(trafficElement elem: maxVol){
-        cout << "maxVol= " << elem.volume << " time=" << elem.time <<  endl;
+        cout <<  "{ " << elem.time << " ," << elem.volume << " }, " ;
     }
+    cout << endl;
     
 }
 

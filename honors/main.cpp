@@ -20,6 +20,8 @@
 #include "longestValidParanthesis.h"
 #include "maxOfSlidingWindow.h"
 #include "prePostOrderTraversalnonRecurs.hpp"
+#include "powerSet.hpp"
+#include "arbitrage.hpp"
 
 
 using namespace std;
@@ -122,7 +124,7 @@ void honorsTest(){
     linkedList* nHead = makeListFromArray({1, 2, 3, 4, 5, 6, 7, 8, 9});
    /* displayList(nHead);
     nHead = zipLinkList(nHead);
-    displayList(nHead);*/
+    displayList(nHead);
     
     linkedList* lastNode = getLastNodeinList(nHead);
     lastNode->next = nHead;
@@ -141,6 +143,32 @@ void honorsTest(){
         cout <<  "{ " << elem.time << " ," << elem.volume << " }, " ;
     }
     cout << endl;
+    
+    unique_ptr<binaryNode<int>> node1 = new binaryNode<int>(14, nullptr, nullptr);
+    */
+    vector<int> setLst({1, 2, 3, 4});
+    vector<vector<int>> powrSet = getPowerSet(setLst);
+    for(vector<int> subSet:powrSet){
+        for(int elem: subSet){
+            cout << elem << " ";
+        }
+        cout << endl;
+    }
+    
+    vector<vector<double>> exchRates = {
+        {1, 0.8123, 0.6404, 78.125, 0.9784, 0.9924, 0.9465},
+        {1.2275, 1, 0.7860, 96.55, 1.2010, 1.2182, 1.1616},
+        {1.5617, 1.2724, 1, 122.83, 1.5280, 1.5498, 1.4778},
+        {0.0128, 0.0104, 0.0081, 1, 1.2442, 0.0126, 0.0120},
+        {1.0219, 0.8327, 0.6546, 80.39, 1, 1.0142, 0.9672},
+        {1.0076, 0.8206, 0.6453, 79.26, 0.9859, 1, 0.9535},
+        {1.0567, 0.8609, 0.6767, 83.12, 1.0339, 1.0487, 1}
+    };
+    
+    bool is_arbitragePossible = doesArbitrageExist(exchRates);
+    
+    cout << "is_arbitragePossible = " << is_arbitragePossible << endl;
+    
     
 }
 

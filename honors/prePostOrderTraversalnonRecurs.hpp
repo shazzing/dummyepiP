@@ -20,10 +20,6 @@ struct binaryNode{
     T data;
     unique_ptr<binaryNode<T>> left, right;
     
-    binaryNode(T dat, unique_ptr<binaryNode<T>>& l, unique_ptr<binaryNode<T>>& r) : data(dat), left(l), right(r)
-    {
-        
-    }
     
     
 };

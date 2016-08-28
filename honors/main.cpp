@@ -22,6 +22,9 @@
 #include "prePostOrderTraversalnonRecurs.hpp"
 #include "powerSet.hpp"
 #include "arbitrage.hpp"
+#include "graphFaultTolerant.h"
+#include "findLongestSubArrLessThanK.hpp"
+#include <memory>
 
 
 using namespace std;
@@ -145,7 +148,7 @@ void honorsTest(){
     cout << endl;
     
     unique_ptr<binaryNode<int>> node1 = new binaryNode<int>(14, nullptr, nullptr);
-    */
+    
     vector<int> setLst({1, 2, 3, 4});
     vector<vector<int>> powrSet = getPowerSet(setLst);
     for(vector<int> subSet:powrSet){
@@ -169,6 +172,46 @@ void honorsTest(){
     
     cout << "is_arbitragePossible = " << is_arbitragePossible << endl;
     
+    graphVertex* a = new graphVertex(0,0, {});
+    graphVertex* b = new graphVertex(0,0, {});
+    graphVertex* c = new graphVertex(0,0, {});
+    graphVertex* d = new graphVertex(0,0, {});
+    graphVertex* e = new graphVertex(0,0, {});
+    graphVertex* f = new graphVertex(0,0, {});
+    graphVertex* g = new graphVertex(0,0, {});
+    graphVertex* h = new graphVertex(0,0, {});
+    graphVertex* i = new graphVertex(0,0, {});
+    graphVertex* j = new graphVertex(0,0, {});
+    graphVertex* k = new graphVertex(0,0, {});
+    graphVertex* l = new graphVertex(0,0, {});
+    graphVertex* m = new graphVertex(0,0, {});
+    
+    
+    a->edges = {b, c};
+    
+    b->edges = {d, e, a};
+    c->edges = {a, d};
+    d->edges = {b, c, e};
+    e->edges = {b, d, f, h};
+    f->edges = {e, g, i};
+    g->edges = {f, h};
+    h->edges = {e, g, i};
+    i->edges = {h, f, m, j, l};
+    j->edges = {i, k};
+    k->edges = {l, m};
+    l->edges = {i, k};
+    m->edges = {i, k};
+     
+    
+    vector<graphVertex*> graph = {a, b, c, d, e, f, g, h, i, j, k, l, m};
+    bool isFaultTol = isGraphFaultTolerant(&graph);
+    cout << "isGraphFault Tolerant = " << isFaultTol << endl;
+    */
+    
+    vector<int> longSubArr = {431, -15, 639, 342, -14, 565, -924, 635, 167, -70};
+    pair<int, int> subArrIndex = findLongestSubArrLessThanK(longSubArr, 184);
+    
+    cout << "long SubArry less than 184 is {" << subArrIndex.first << " , " << subArrIndex.second << "}" << endl;
     
 }
 

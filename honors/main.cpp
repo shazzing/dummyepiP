@@ -25,6 +25,8 @@
 #include "graphFaultTolerant.h"
 #include "findLongestSubArrLessThanK.hpp"
 #include <memory>
+#include "addRoadNetworkreduceDistance.h"
+#include "elemThatAppearsMoreTimes.hpp"
 
 
 using namespace std;
